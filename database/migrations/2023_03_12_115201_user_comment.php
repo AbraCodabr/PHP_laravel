@@ -29,6 +29,6 @@ class UserComment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comment');
+        //
     }
 }

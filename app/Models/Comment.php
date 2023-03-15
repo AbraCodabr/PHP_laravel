@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class Comment extends Model
 {
+    protected $table = 'comment';
     protected $fillable = ['body'];
     
     public function user() {

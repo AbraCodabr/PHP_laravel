@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
 
 class ProfileController extends Controller
 {
@@ -26,14 +28,12 @@ class ProfileController extends Controller
         $validateStatus = $request->validate([
             'status' => 'required'
         ]);
-
-        dd(Auth::user()->comment());
-
+ 
         Auth::user()->comment()->create([
             'body' => $request->input('status')
         ]);
         
+        return redirect()->intended(url()->previous());
         
-        return redirect()->intended('/profile/' . $id);
     }
 }
